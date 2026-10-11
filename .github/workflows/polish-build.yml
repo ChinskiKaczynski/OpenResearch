@@ -34,6 +34,9 @@ jobs:
       - name: Check localization catalog
         working-directory: ui
         run: pnpm lint:i18n
+      - name: Generate localized messages for tests
+        working-directory: ui
+        run: pnpm exec paraglide-js compile --silent --emit-ts-declarations
       - name: Run UI tests
         working-directory: ui
         run: pnpm test
